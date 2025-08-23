@@ -64,6 +64,7 @@
       return `Posted ${minutes} minute${minutes === 1 ? "" : "s"} ago`;
     if (hours < 8) return `Posted ${hours} hour${hours === 1 ? "" : "s"} ago`;
     if (isYesterday(posted)) return "Posted yesterday";
+    if (hours < 24) return `Posted ${hours} hour${hours === 1 ? "" : "s"} ago`;
     if (days < 30) return `Posted ${days} day${days === 1 ? "" : "s"} ago`;
     if (days < 365)
       return `Posted ${months} month${months === 1 ? "" : "s"} ago`;
@@ -88,9 +89,13 @@
       borderColor = pillColor = "#059669";
       backgroundColor = "#F0FAF5";
       pillLabel = "⏳ Recent";
+    } else if (hours < 24 && !isYesterday(posted)) {
+      borderColor = pillColor = "#6B7280";
+      backgroundColor = "#eff1f6";
+      pillLabel = "🕒 Today";
     } else if (isYesterday(posted)) {
       borderColor = pillColor = "#6B7280";
-      backgroundColor = "#E5E7EB";
+      backgroundColor = "#eff1f6";
       pillLabel = hours < 24 ? "🕒 < 24 hrs ago" : "🕒 > 24 hrs ago";
     }
 
