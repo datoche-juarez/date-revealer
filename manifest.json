@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Date Revealer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Displays the posting date on supported job pages (currently Indeed). Not affiliated with any job site.",
   "permissions": [],
   "host_permissions": ["https://www.indeed.com/viewjob*"],
